@@ -90,7 +90,7 @@ docker run -d --name deepseekv41f1017-18gogogo \
   -e PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True \
   -e VLLM_SPARSE_INDEXER_MAX_LOGITS_MB=128 \
   -e VLLM_CACHE_ROOT=/tmp/dsv41-cache \
-  -e TRITON_CACHE_DIR=/tmp/dsv41-triton-cache \
+  -e TRITON_CACHE_DIR=/tmp/dsv41-triton \
   -e HF_HUB_OFFLINE=1 \
   -e VLLM_ENGINE_READY_TIMEOUT_S=36000 \
   -e CUDA_DEVICE_MAX_CONNECTIONS=16 \
