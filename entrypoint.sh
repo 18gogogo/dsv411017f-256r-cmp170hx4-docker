@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# 鏡像內 entrypoint：將上游生產啟動參數內建，用家只需掛模型 + 起容器。
-# 注意：Docker Hub 現成鏡像未設 entrypoint — 用 DEPLOY.md 步驟 4 嘅完整 docker run。
-# 自己 ./build.sh 出嘅鏡像先至有用到呢個 entrypoint。
+# 鏡像內 entrypoint：將上游生產啟動參數內建，用戶只需掛載模型並啟動容器。
+# 注意：Docker Hub 現成鏡像未設定 entrypoint — 請使用 DEPLOY.md 步驟 4 的完整 docker run 指令。
+# 自行以 ./build.sh 構建的鏡像才會使用此 entrypoint。
 set -euo pipefail
 : "${MODEL_PATH:=/model}"
 : "${HOST:=127.0.0.1}"
