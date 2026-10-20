@@ -36,7 +36,29 @@ docker pull 18gogogo/170hx4-256r-dsv41-1017-flash:sm80
 # 或自訂目錄： ./download-model.sh /path/to/models/DeepSeek-V4.1-Flash-1017
 ```
 
-支援斷點續傳 — 中斷後重跑同款指令會跳過已完成檔案。有 HF token 嘅話 `export HF_TOKEN=*** 再跑，可解除匿名頻寬限制。
+支援斷點續傳 — 中斷後重跑同款指令會跳過已完成檔案。有 HF token 嘅話 `export HF_TOKEN=<你的>` 再跑，可解除匿名頻寬限制。
+
+### 手動逐步版（不想用 script 嘅用家）
+
+> Ubuntu 24.04+/26.04 有 PEP 668 限制，`pip` 直接裝會失敗 — 正確方法係 **pipx**。
+
+```bash
+# 1. 安裝 pipx
+sudo apt update && sudo apt install -y pipx
+
+# 2. 配置 PATH（關鍵步驟；之後重新開一個 shell 或 source ~/.bashrc）
+pipx ensurepath
+
+# 3. 安裝 huggingface_hub（注意：新版本已移除 huggingface-cli，改用 hf 命令）
+pipx install huggingface_hub
+
+# 4. 擁有模型目錄（避免權限問題）
+sudo chown -R $USER:$USER $HOME/models/DeepSeek-V4.1-Flash-1017
+
+# 5. 下載（510.3 GiB；斷點續傳 — 中斷後重跑跳過已完成檔案）
+export HF_XET_HIGH_PERFORMANCE=1
+hf download deepseek-ai/DeepSeek-V4.1-Flash-1017 --local-dir $HOME/models/DeepSeek-V4.1-Flash-1017
+```
 
 ## 步驟 3：鏡像驗證（首次啟動前做一次）
 

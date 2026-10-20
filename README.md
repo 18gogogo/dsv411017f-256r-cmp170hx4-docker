@@ -50,6 +50,8 @@ docker pull 18gogogo/170hx4-256r-dsv41-1017-flash:sm80
 ./download-model.sh
 ```
 
+> Script 內部會自動用 **pipx** 裝 hf CLI（Ubuntu 24+/26.04 的 PEP 668 令 pip 直接裝失敗）。想用手動逐步版，見 [DEPLOY.md](DEPLOY.md) 步驟 2「手動逐步版」。
+
 **3. 啟動**
 用家請照 [DEPLOY.md](DEPLOY.md) 步驟 4 嘅完整 `docker run` 指令（Hub 鏡像未設 entrypoint，要寫完整啟動命令）。自己 `./build.sh` 出嘅鏡像已內建 entrypoint，一行就起得。
 
