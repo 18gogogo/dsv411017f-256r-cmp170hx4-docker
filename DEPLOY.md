@@ -77,7 +77,7 @@ for f in $(find /workspace/vllm-backport -name libdsv41_cuda.so); do
 ## 步驟 4：啟動
 
 ```bash
-docker run -d --name deepseek-v41f1017 \
+docker run -d --name deepseekv41f1017-18gogogo \
   --gpus all \
   --ipc=host \
   --cap-add=SYS_NICE \
